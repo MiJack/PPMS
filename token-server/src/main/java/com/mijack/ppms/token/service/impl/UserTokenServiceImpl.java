@@ -24,7 +24,7 @@ import com.mijack.ppms.token.dto.TokenGenerateDto;
 import com.mijack.ppms.token.dto.TokenRpcCode;
 import com.mijack.ppms.token.dto.TokenType;
 import com.mijack.ppms.token.service.AbstractTokenService;
-import com.mijack.ppms.utils.IP;
+import com.mijack.ppms.utils.Ip;
 import com.mijack.ppms.utils.IpUtil;
 import org.apache.commons.lang3.time.DateUtils;
 import org.hashids.Hashids;
@@ -46,7 +46,7 @@ public class UserTokenServiceImpl extends AbstractTokenService<UserTokenParam> {
         }
         Long requestTime = tokenGenerateDto.getParameter("requestTime", Long.class);
         String clientIp = tokenGenerateDto.getParameter("clientIp", "0.0.0.0");
-        IP ip = IpUtil.parseIp(clientIp);
+        Ip ip = IpUtil.parseIp(clientIp);
         if (ip == null) {
             throw TokenRpcCode.ParameterError.toException("clientIp", clientIp);
         }
@@ -58,7 +58,7 @@ public class UserTokenServiceImpl extends AbstractTokenService<UserTokenParam> {
         if (tokenGenerateDto.getTokenType() != TokenType.UserToken.id()) {
             throw new IllegalStateException("UserTokenService 不支持 TokenTypeCode = " + tokenGenerateDto.getTokenType());
         }
-        IP ip = param.getIp();
+        Ip ip = param.getIp();
         long expireTimeMillis = param.getRequestTime() + DateUtils.MILLIS_PER_DAY;
         long ipValue = (((ip.getGroup0() * 256) + ip.getGroup1()) * 256 + ip.getGroup2()) * 256 + ip.getGroup3();
         String token = hashids.encode(expireTimeMillis, ipValue);
@@ -83,7 +83,7 @@ public class UserTokenServiceImpl extends AbstractTokenService<UserTokenParam> {
         long currentTimeMillis = System.currentTimeMillis();
         long[] decode = hashids.decode(token.getToken());
         if (CollectionHelper.length(decode) != 2) {
-            throw TokenRpcCode.ParameterError.toException();
+            throw TokenRpcCode.TokenError.toException();
         }
         long expireTimeMillis = decode[0];
         return currentTimeMillis < expireTimeMillis;

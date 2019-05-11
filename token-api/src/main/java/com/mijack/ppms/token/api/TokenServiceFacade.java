@@ -37,6 +37,7 @@ public interface TokenServiceFacade {
     /**
      * 检查token的有效性
      *
+     * @param token
      * @return
      */
     RpcResult<Boolean> checkToken(Token token);
@@ -52,6 +53,7 @@ public interface TokenServiceFacade {
     /**
      * 使token失效
      *
+     * @param token
      * @return
      */
     RpcResult<Boolean> invalidToken(Token token);

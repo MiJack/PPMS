@@ -23,9 +23,10 @@ import java.util.regex.Pattern;
  * @author Mi&Jack
  */
 public class IpUtil {
+    public static final int MAX_IP_NUMBER = 255;
     public static final Pattern IP_PATTERN = Pattern.compile("(\\d{1,3}).(\\d{1,3}).(\\d{1,3}).(\\d{1,3})");
 
-    public static IP parseIp(String clientIp) {
+    public static Ip parseIp(String clientIp) {
         Matcher matcher = IP_PATTERN.matcher(clientIp);
         if (!matcher.matches()) {
             return null;
@@ -34,19 +35,19 @@ public class IpUtil {
         long group1 = Long.valueOf(matcher.group(1));
         long group2 = Long.valueOf(matcher.group(2));
         long group3 = Long.valueOf(matcher.group(3));
-        if (group0 < 0 || group0 > 255) {
+        if (group0 < 0 || group0 > MAX_IP_NUMBER) {
             return null;
         }
-        if (group1 < 0 || group1 > 255) {
+        if (group1 < 0 || group1 > MAX_IP_NUMBER) {
             return null;
         }
-        if (group2 < 0 || group2 > 255) {
+        if (group2 < 0 || group2 > MAX_IP_NUMBER) {
             return null;
         }
-        if (group3 < 0 || group3 > 255) {
+        if (group3 < 0 || group3 > MAX_IP_NUMBER) {
             return null;
         }
-        IP ip = new IP();
+        Ip ip = new Ip();
         ip.setGroup0(group0);
         ip.setGroup1(group1);
         ip.setGroup2(group2);

@@ -16,7 +16,7 @@
 
 package com.mijack.ppms.token.data;
 
-import com.mijack.ppms.utils.IP;
+import com.mijack.ppms.utils.Ip;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +29,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserTokenParam {
     private Long requestTime;
-    private IP ip;
+    private Ip ip;
 
 }

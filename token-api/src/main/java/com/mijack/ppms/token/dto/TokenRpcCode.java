@@ -22,15 +22,45 @@ import com.mijack.ppms.exceptions.IRpcCodeEnum;
  * @author Mi&Jack
  */
 public enum TokenRpcCode implements IRpcCodeEnum {
+    /**
+     * 调用成功
+     */
     ResultOk(0, "调用成功"),
+    /**
+     * TokenType不支持
+     */
     TokenTypeNotSupported(1, "TokenType(name = {0})不支持"),
+    /**
+     *TokenTypeCode不支持
+     */
     TokenTypeCodeNotSupported(2, "TokenTypeCode(code = {0})不支持"),
+    /**
+     *token生成失败
+     */
     TokenGenerationFailed(3, "token生成失败"),
+    /**
+     *Token已过期
+     */
     TokenInvaild(4, "Token已过期"),
+    /**
+     *逆向解析token操作不支持
+     */
     ReverseTokenNotSupported(5, "TokenTypeCode(code = {0})逆向解析token操作不支持"),
+    /**
+     * 延长token操作不支持
+     */
     ExtendTokenExpireTimeNotSupported(6, "TokenTypeCode(code = {0})延长token操作不支持"),
+    /**
+     * 强制token失效操作不支持
+     */
     InvaildTokenNotSupported(7, "TokenTypeCode(code = {0})强制token失效操作不支持"),
+    /**
+     * 参数格式异常
+     */
     ParameterError(8, "参数格式异常:{0} = {1}"),
+    /**
+     * token格式异常
+     */
     TokenError(9, "token格式异常"),
     ;
 

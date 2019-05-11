@@ -22,7 +22,7 @@ import lombok.Data;
  * @author Mi&Jack
  */
 @Data
-public class IP {
+public class Ip {
     private long group0;
     private long group1;
     private long group2;

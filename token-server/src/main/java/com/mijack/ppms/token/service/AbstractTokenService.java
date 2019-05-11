@@ -32,13 +32,25 @@ public abstract class AbstractTokenService<T> implements TokenService {
      * @param tokenGenerateDto
      * @return 生成的邀请token
      */
+    @Override
     public final GeneratedToken generateToken(TokenGenerateDto tokenGenerateDto) {
         T param = parseParams(tokenGenerateDto);
         return generateToken(tokenGenerateDto,param);
     }
 
+    /**
+     * 根据tokenGenerateDto生成参数对象
+     * @param tokenGenerateDto
+     * @return
+     */
     protected abstract T parseParams(TokenGenerateDto tokenGenerateDto);
 
+    /**
+     * 生成token
+     * @param tokenGenerateDto
+     * @param param
+     * @return
+     */
     protected abstract GeneratedToken generateToken(TokenGenerateDto tokenGenerateDto,T param);
 
 
@@ -47,6 +59,7 @@ public abstract class AbstractTokenService<T> implements TokenService {
      *
      * @return
      */
+    @Override
     public void invalidToken(Token token) {
         throw TokenRpcCode.InvaildTokenNotSupported.toException(token.getTokenType());
     }
@@ -58,6 +71,7 @@ public abstract class AbstractTokenService<T> implements TokenService {
      * @param expireDuration 使未失效的token的失效时间点向后延长的时间
      * @return 生成的权限
      */
+    @Override
     public final GeneratedToken extendTokenExpireTime(Token token, long expireDuration) {
         if (!checkToken(token)) {
             throw TokenRpcCode.TokenInvaild.toException();

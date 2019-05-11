@@ -20,12 +20,14 @@ package com.mijack.ppms.enums;
  */
 public interface DescriptionEnum {
     /**
-     * @return 枚举的描述
+     * 枚举的描述
+     * @return
      */
     String desc();
 
     /**
-     * @return 枚举的名称
+     * 枚举的名称
+     * @return
      */
     String name();
 }

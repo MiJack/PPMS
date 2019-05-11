@@ -20,5 +20,10 @@ package com.mijack.ppms.user.api;
  * @author Mi&Jack
  */
 public interface UserService {
+    /**
+     * 空实现，用于调试链路
+     *
+     * @return
+     */
     String hello();
 }

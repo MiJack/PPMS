@@ -23,6 +23,9 @@ import com.mijack.ppms.enums.IdentifierEnum;
  * @author Mi&Jack
  */
 public enum TokenType implements IdentifierEnum, DescriptionEnum {
+    /**
+     * 用户密码加密token
+     */
     UserToken(0,"用户密码加密token") ;
 
     private int id;

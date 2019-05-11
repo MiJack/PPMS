@@ -36,6 +36,7 @@ public interface TokenService {
     /**
      * 检查token的有效性
      *
+     * @param token
      * @return
      */
     Boolean checkToken(Token token);
@@ -51,7 +52,7 @@ public interface TokenService {
     /**
      * 使token失效
      *
-     * @return
+     * @param token
      */
     void invalidToken(Token token);
 
