@@ -14,11 +14,21 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.dto;
+buildscript {
+    ext {
+        springBootVersion = '2.1.4.RELEASE'
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
+    }
+}
 
-/**
- * @author yuanyujie
- */
-public class UserDto {
+apply plugin: 'org.springframework.boot'
 
+
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+    compile('org.apache.zookeeper:zookeeper:3.4.9')
+    compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
 }

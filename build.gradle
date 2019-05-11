@@ -29,9 +29,23 @@ allprojects {
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         mavenCentral()
     }
+    buildscript {
+        repositories {
+            maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+            mavenCentral()
+        }
+    }
 }
 
 subprojects { subproj ->
+    def springBootVersion = versions.springboot
+
+    def fullName = subproj.name
+    def isServer = fullName.endsWith('-service')
+    def isApi = fullName.endsWith('-api')
+
+
+//
 
     apply plugin: 'java'
 
@@ -105,13 +119,12 @@ subprojects { subproj ->
     dependencies {
         // 用于上传自己项目的jar 包到中心 maven 库
         deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
+        compileOnly 'org.projectlombok:lombok:1.18.8'
+        annotationProcessor 'org.projectlombok:lombok:1.18.8'
 
-        def fullName = subproj.name
-        def isServer = fullName.endsWith('-server')
-        def isApi = fullName.endsWith('-api')
         if (isServer) {
-            // server 项目自动添加api依赖
-            def serverName = fullName.substring(0, fullName.length() - "-server".length())
+            // service 项目自动添加api依赖
+            def serverName = fullName.substring(0, fullName.length() - "-service".length())
             compile project(":${serverName}-api")
             // 通用依赖
             compile(
@@ -128,6 +141,7 @@ subprojects { subproj ->
                     libraries.'assertj',
                     libraries.'mockito-core',
             )
+            compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.3'
 
 
             // 引入子项目下的lib文件夹中的包
@@ -138,7 +152,7 @@ subprojects { subproj ->
 
         }
         if (isApi) {
-            // server 项目自动添加api依赖
+            // service 项目自动添加api依赖
             def serverName = fullName.substring(0, fullName.length() - "-api".length())
             compile project(":api-base")
         }

@@ -14,15 +14,40 @@
  * limitations under the License.
  */
 
-apply plugin: 'war'
 
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'java'
+    id 'war'
+}
 archivesBaseName = 'project-web'
 version = '1.0.0'
+//
+//dependencies {
+//    compileOnly(
+//            libraries.'servlet-api',
+//            libraries.'jsp-api'
+//    )
+//    compile(libraries.'spring-webmvc')
+//}
+
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.mijack.ppms'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
 
 dependencies {
-    compileOnly(
-            libraries.'servlet-api',
-            libraries.'jsp-api'
-    )
-    compile(libraries.'spring-webmvc')
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    compile project(":user-api")
+    compile 'org.apache.dubbo:dubbo-spring-boot-starter:2.7.1'
+    compile group: 'org.apache.dubbo', name: 'dubbo', version: '2.7.1'
+    compile 'org.apache.dubbo:dubbo-dependencies-zookeeper:2.7.1'
+
 }

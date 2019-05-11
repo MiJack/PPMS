@@ -17,9 +17,8 @@
 package com.mijack.ppms.user.api;
 
 /**
- * @author yuanyujie
+ * @author Mi&Jack
  */
 public interface UserService {
-
-
+    String hello();
 }

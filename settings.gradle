@@ -13,13 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
 rootProject.name = 'PPMS'
 
 include 'api-base'
 include 'storage-api'
-include 'storage-server'
+include 'storage-service'
 include 'user-api'
-include 'user-server'
+include 'user-service'
+include 'token-api'
+include 'token-service'
 include 'portal-web'
+include 'registry-center'
 
