@@ -41,7 +41,7 @@ subprojects { subproj ->
     def springBootVersion = versions.springboot
 
     def fullName = subproj.name
-    def isServer = fullName.endsWith('-service')
+    def isServer = fullName.endsWith('-server')
     def isApi = fullName.endsWith('-api')
 
 
@@ -124,8 +124,9 @@ subprojects { subproj ->
 
         if (isServer) {
             // service 项目自动添加api依赖
-            def serverName = fullName.substring(0, fullName.length() - "-service".length())
+            def serverName = fullName.substring(0, fullName.length() - "-server".length())
             compile project(":${serverName}-api")
+            compile project(":server-base")
             // 通用依赖
             compile(
                     libraries.'logback-classic',

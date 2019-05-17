@@ -65,13 +65,13 @@ public enum TokenRpcCode implements IRpcCodeEnum {
     ;
 
     private int code;
+    private String msg;
 
     TokenRpcCode(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    private String msg;
 
     @Override
     public int code() {
@@ -81,11 +81,6 @@ public enum TokenRpcCode implements IRpcCodeEnum {
     @Override
     public String msg() {
         return msg;
-    }
-
-    @Override
-    public String errorType() {
-        return name();
     }
 
 }

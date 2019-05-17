@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.portal.controller;
+package com.mijack.ppms.portal.service;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * @author Mi&Jack
  */
-@RestController
-public class UserController {
+public interface ProtalUserService extends UserDetailsService {
 }

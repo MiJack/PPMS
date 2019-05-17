@@ -82,7 +82,7 @@ public class UserTokenServiceImpl extends AbstractTokenService<UserTokenParam> {
         }
         long currentTimeMillis = System.currentTimeMillis();
         long[] decode = hashids.decode(token.getToken());
-        if (CollectionHelper.length(decode) != 2) {
+        if (CollectionHelper.size(decode) != 2) {
             throw TokenRpcCode.TokenError.toException();
         }
         long expireTimeMillis = decode[0];

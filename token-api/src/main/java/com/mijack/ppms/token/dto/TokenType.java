@@ -26,7 +26,11 @@ public enum TokenType implements IdentifierEnum, DescriptionEnum {
     /**
      * 用户密码加密token
      */
-    UserToken(0,"用户密码加密token") ;
+    UserToken(0, "用户密码加密token"),
+    /**
+     * 用户密码加密token
+     */
+    UserAuthToken(1, "用户认证token");
 
     private int id;
 

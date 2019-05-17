@@ -14,13 +14,19 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.portal.controller;
+package com.mijack.ppms.user.manager;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.mijack.ppms.user.dto.UserStatus;
 
 /**
  * @author Mi&Jack
  */
-@RestController
-public class UserController {
+public interface UserStatusManager {
+    /**
+     * 根据userId查询得到对应的UserStatus
+     *
+     * @param userId
+     * @return
+     */
+    UserStatus findUserStatus(long userId);
 }

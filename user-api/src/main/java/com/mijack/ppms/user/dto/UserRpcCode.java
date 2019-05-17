@@ -16,51 +16,49 @@
 
 package com.mijack.ppms.user.dto;
 
-import com.mijack.ppms.enums.IdentifierEnum;
+import com.mijack.ppms.exceptions.IRpcCodeEnum;
 
 /**
  * @author Mi&Jack
  */
-public enum Role implements IdentifierEnum<Role> {
+public enum UserRpcCode implements IRpcCodeEnum {
     /**
-     * 超级管理员
+     * 调用成功
      */
-    ROOT(0, "超级管理员"),
+    ResultOk(0, "调用成功"),
     /**
-     * 管理员
+     * 用户未找到
      */
-    ADMIN(1, "管理员"),
+    NoUserFound(1, "用户（userId = {1}）未找到"),
     /**
-     * 用户
+     * 用户已锁定
      */
-    USER(2, "用户"),
+    UserLocked(2, "用户（userId = {1}）已锁定"),
     /**
-     * 未知用户
+     * 用户无权限
      */
-    UNKNOWN(-1, "未知用户");
+    NO_USER_ROLE(3, "用户（userId = {1}）无权限"),
+    /**
+     * 非法参数
+     */
+    WRONG_PARAM(4,"非法参数")
+    ;
+    private int code;
+    private String msg;
 
-    private static final String ROLE_PREFIX = "ROLE_";
-    /**
-     * id
-     */
-    private int id;
-    /**
-     * 角色描述
-     */
-    private String description;
+    UserRpcCode(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
 
-    Role(int id, String description) {
-        this.id = id;
-        this.description = description;
+
+    @Override
+    public int code() {
+        return code;
     }
 
     @Override
-    public int id() {
-        return id;
+    public String msg() {
+        return msg;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
 }

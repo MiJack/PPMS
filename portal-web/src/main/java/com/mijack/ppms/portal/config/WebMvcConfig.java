@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.portal.controller;
+package com.mijack.ppms.portal.config;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Mi&Jack
  */
-@RestController
-public class UserController {
+@Configuration
+public class WebMvcConfig extends WebMvcAutoConfiguration {
+
 }

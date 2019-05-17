@@ -14,13 +14,26 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.portal.controller;
+package com.mijack.ppms.user.dto;
 
-import org.springframework.web.bind.annotation.RestController;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Mi&Jack
  */
-@RestController
-public class UserController {
+@Data
+@Builder()
+@NoArgsConstructor
+public class RoleStatus {
+    public static final int STATUS_ENABLE = 1;
+    public static final int STATUS_DISABLE = 2;
+    private long id;
+    private int roleId;
+    /**
+     *
+     */
+    private int status;
+
 }

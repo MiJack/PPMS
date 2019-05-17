@@ -18,11 +18,14 @@ package com.mijack.ppms.user.dto;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author Mi&Jack
  */
 @Data
-public class UserProfile {
+public class UserProfile implements Serializable {
+    private static final long serialVersionUID = -1947065263740167935L;
     private long userId;
     private String userName;
     private String email;

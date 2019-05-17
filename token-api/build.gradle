@@ -15,5 +15,4 @@
  */
 
 dependencies {
-    compile 'org.hashids:hashids:1.0.3'
 }

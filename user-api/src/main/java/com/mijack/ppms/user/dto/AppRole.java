@@ -14,13 +14,30 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.portal.controller;
+package com.mijack.ppms.user.dto;
 
-import org.springframework.web.bind.annotation.RestController;
+import lombok.Data;
+
+import java.io.Serializable;
 
 /**
+ * 对外开发应用角色的dto
+ *
  * @author Mi&Jack
  */
-@RestController
-public class UserController {
+@Data
+public class AppRole implements Serializable {
+    private static final long serialVersionUID = 5027230210598283663L;
+    /**
+     * 应用角色代码
+     */
+    private int id;
+    /**
+     * 应用角色名称
+     */
+    private String name;
+    /**
+     * 应用名
+     */
+    private String appName;
 }

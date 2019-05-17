@@ -38,8 +38,14 @@
               <element id="module-output" name="PPMS.api-base" />
               <element id="dir-copy" path="$PROJECT_DIR$/api-base/out/production/resources" />
             </element>
+            <element id="archive" name="com.mijack.ppms-token-api.jar">
+              <element id="module-output" name="PPMS.token-api" />
+              <element id="dir-copy" path="$PROJECT_DIR$/token-api/out/production/resources" />
+            </element>
             <element id="library" level="project" name="Gradle: org.apache.dubbo:dubbo-spring-boot-starter:2.7.1" />
             <element id="library" level="project" name="Gradle: org.apache.dubbo:dubbo:2.7.1" />
+            <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.7" />
+            <element id="library" level="project" name="Gradle: org.apache.commons:commons-collections4:4.3" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-security:2.1.4.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:2.1.4.RELEASE" />
             <element id="library" level="project" name="Gradle: org.apache.dubbo:dubbo-spring-boot-autoconfigure:2.7.1" />
@@ -103,6 +109,11 @@
       </root>
     </artifact>
   </component>
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+  </component>
   <component name="CopyrightManager" default="apache">
     <copyright>
       <option name="notice" value="Copyright &amp;#36;today.year Mi&amp;amp;Jack&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#10;you may not use this file except in compliance with the License.&#10;You may obtain a copy of the License at&#10;&#10;    http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software&#10;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#10;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and&#10;limitations under the License." />
@@ -127,12 +138,13 @@
             <option value="$PROJECT_DIR$/api-base" />
             <option value="$PROJECT_DIR$/portal-web" />
             <option value="$PROJECT_DIR$/registry-center" />
+            <option value="$PROJECT_DIR$/server-base" />
             <option value="$PROJECT_DIR$/storage-api" />
-            <option value="$PROJECT_DIR$/storage-service" />
+            <option value="$PROJECT_DIR$/storage-server" />
             <option value="$PROJECT_DIR$/token-api" />
-            <option value="$PROJECT_DIR$/token-service" />
+            <option value="$PROJECT_DIR$/token-server" />
             <option value="$PROJECT_DIR$/user-api" />
-            <option value="$PROJECT_DIR$/user-service" />
+            <option value="$PROJECT_DIR$/user-server" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
@@ -374,15 +386,13 @@
       <module fileurl="file://$PROJECT_DIR$/api-base/PPMS.api-base.iml" filepath="$PROJECT_DIR$/api-base/PPMS.api-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/portal-web/PPMS.portal-web.iml" filepath="$PROJECT_DIR$/portal-web/PPMS.portal-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/registry-center/PPMS.registry-center.iml" filepath="$PROJECT_DIR$/registry-center/PPMS.registry-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-base/PPMS.server-base.iml" filepath="$PROJECT_DIR$/server-base/PPMS.server-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/storage-api/PPMS.storage-api.iml" filepath="$PROJECT_DIR$/storage-api/PPMS.storage-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/storage-server/PPMS.storage-server.iml" filepath="$PROJECT_DIR$/storage-server/PPMS.storage-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/storage-service/PPMS.storage-service.iml" filepath="$PROJECT_DIR$/storage-service/PPMS.storage-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/token-api/PPMS.token-api.iml" filepath="$PROJECT_DIR$/token-api/PPMS.token-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/token-server/PPMS.token-server.iml" filepath="$PROJECT_DIR$/token-server/PPMS.token-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/token-service/PPMS.token-service.iml" filepath="$PROJECT_DIR$/token-service/PPMS.token-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-api/PPMS.user-api.iml" filepath="$PROJECT_DIR$/user-api/PPMS.user-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-server/PPMS.user-server.iml" filepath="$PROJECT_DIR$/user-server/PPMS.user-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/user-service/PPMS.user-service.iml" filepath="$PROJECT_DIR$/user-service/PPMS.user-service.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

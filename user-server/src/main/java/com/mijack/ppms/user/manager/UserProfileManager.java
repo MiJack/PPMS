@@ -14,16 +14,19 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.api;
+package com.mijack.ppms.user.manager;
+
+import com.mijack.ppms.user.dto.UserProfile;
 
 /**
  * @author Mi&Jack
  */
-public interface UserService {
+public interface UserProfileManager {
     /**
-     * 空实现，用于调试链路
+     * 根据userId查找对应的UserProfile
      *
+     * @param userId
      * @return
      */
-    String hello();
+    UserProfile findUserProfile(long userId);
 }

@@ -16,11 +16,25 @@
 
 package com.mijack.ppms.common;
 
+import java.util.Collection;
+
 /**
  * @author Mi&Jack
  */
 public class CollectionHelper {
-    public static <T> int length(T... array) {
+    public static <T> int size(T... array) {
         return array == null ? 0 : array.length;
+    }
+
+    public static <T> int size(Collection<T> collection) {
+        return collection == null ? 0 : collection.size();
+    }
+
+    public static <T> boolean isEmpty(Collection<T> collection) {
+        return size(collection) == 0;
+    }
+
+    public static <T> boolean isEmpty(T[] array) {
+        return size(array) == 0;
     }
 }

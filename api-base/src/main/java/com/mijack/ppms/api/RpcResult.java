@@ -30,4 +30,8 @@ public class RpcResult<T> {
     private int code;
     private String msg;
     private T data;
+
+    public boolean isSuccuess() {
+        return code == 0;
+    }
 }

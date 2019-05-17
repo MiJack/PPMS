@@ -18,15 +18,28 @@ package com.mijack.ppms.user.dto;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author Mi&Jack
  */
 @Data
-public class UserStatus {
-    private long userId;
-    private boolean accountNonExpired = true;
-    private boolean accountNonLocked = true;
-    private boolean credentialsNonExpired = true;
-    private boolean enabled = true;
+public class UserStatus implements Serializable {
+    private static final long serialVersionUID = 5452775627986235981L;
 
+    public static final int UNKNOWN_STATUS = -1;
+    public static final int INIT_STATUS = 1;
+    public static final int DELETE_STATUS = 2;
+    public static final int LOCKED_STATUS = 3;
+
+    private long userId;
+    private int status = UNKNOWN_STATUS;
+
+    public boolean isDeleted() {
+        return status == DELETE_STATUS;
+    }
+
+    public boolean isLocked() {
+        return status == LOCKED_STATUS;
+    }
 }

@@ -60,4 +60,22 @@ public interface IRpcCodeEnum extends RpcExceptionDesc, IToRpcException {
         return rpcResult;
     }
 
+    /**
+     * rpc异常的类型
+     *
+     * @return
+     * @see RpcExceptionDesc#errorType()
+     */
+    @Override
+    default String errorType() {
+        return name();
+    }
+
+    /**
+     * rpc异常的名称
+     *
+     * @return
+     * @see com.mijack.ppms.exceptions.IRpcCodeEnum#name()
+     */
+    String name();
 }

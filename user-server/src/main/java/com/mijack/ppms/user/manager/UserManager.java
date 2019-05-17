@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.portal.controller;
-
-import org.springframework.web.bind.annotation.RestController;
+package com.mijack.ppms.user.manager;
 
 /**
  * @author Mi&Jack
  */
-@RestController
-public class UserController {
+public interface UserManager {
 }

@@ -18,7 +18,7 @@ package com.mijack.ppms.enums;
 /**
  * @author Mi&Jack
  */
-public interface IdentifierEnum {
+public interface IdentifierEnum<T extends Enum> {
     /**
      * 枚举的id
      *

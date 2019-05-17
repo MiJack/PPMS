@@ -21,12 +21,13 @@ pluginManagement {
 rootProject.name = 'PPMS'
 
 include 'api-base'
+include 'server-base'
 include 'storage-api'
-include 'storage-service'
+include 'storage-server'
 include 'user-api'
-include 'user-service'
+include 'user-server'
 include 'token-api'
-include 'token-service'
+include 'token-server'
 include 'portal-web'
 include 'registry-center'
 

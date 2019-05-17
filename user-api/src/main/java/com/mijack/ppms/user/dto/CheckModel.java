@@ -14,21 +14,18 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.service;
-
-import com.mijack.ppms.user.api.UserService;
-import org.apache.dubbo.config.annotation.Service;
-import org.springframework.stereotype.Component;
+package com.mijack.ppms.user.dto;
 
 /**
  * @author Mi&Jack
  */
-@Component
-@Service
-public class UserServiceImpl implements UserService {
-
-    @Override
-    public String hello() {
-        return "UserServer";
-    }
+public enum CheckModel {
+    /**
+     * 表示要求userId持有所有的用户角色
+     */
+    HAVE_ALL_ROLES,
+    /**
+     * 表示要求userId持有部分的用户角色
+     */
+    HAVE_ANY_ROLE;
 }
