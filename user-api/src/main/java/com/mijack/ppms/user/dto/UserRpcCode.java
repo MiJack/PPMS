@@ -23,10 +23,6 @@ import com.mijack.ppms.exceptions.IRpcCodeEnum;
  */
 public enum UserRpcCode implements IRpcCodeEnum {
     /**
-     * 调用成功
-     */
-    ResultOk(0, "调用成功"),
-    /**
      * 用户未找到
      */
     NoUserFound(1, "用户（userId = {1}）未找到"),
@@ -37,11 +33,15 @@ public enum UserRpcCode implements IRpcCodeEnum {
     /**
      * 用户无权限
      */
-    NO_USER_ROLE(3, "用户（userId = {1}）无权限"),
+    NoUserRole(3, "用户（userId = {1}）无权限"),
     /**
-     * 非法参数
+     * 用户无给定的任意权限
      */
-    WRONG_PARAM(4,"非法参数")
+    NoAnyUserRoleFound(6, "用户（userId = {1}）无权限[{2}]中的任何一种"),
+    /**
+     * 用户无给定的所有权限
+     */
+    NoAllUserRoleFound(7, "用户（userId = {1}）无以下所有的权限：{2}")
     ;
     private int code;
     private String msg;

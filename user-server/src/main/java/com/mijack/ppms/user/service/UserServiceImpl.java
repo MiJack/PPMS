@@ -14,18 +14,31 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.user.service;
 
+import com.mijack.ppms.api.RpcCode;
+import com.mijack.ppms.api.RpcResult;
+import com.mijack.ppms.user.api.UserService;
 import com.mijack.ppms.user.dto.UserRequirement;
+import com.mijack.ppms.user.manager.UserManager;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Mi&Jack
  */
-public interface UserManager {
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserManager userManager;
+
     /**
      * 检查userRequirement中的用户角色状态
      *
      * @param userRequirement
+     * @return
      */
-    void checkUserRequirement(UserRequirement userRequirement);
+    @Override
+    public RpcResult<Void> checkUserRequirement(UserRequirement userRequirement) {
+        userManager.checkUserRequirement(userRequirement);
+        return RpcCode.ResultOk.wrapResult(null);
+    }
 }

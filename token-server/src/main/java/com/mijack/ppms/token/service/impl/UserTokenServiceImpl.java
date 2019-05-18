@@ -16,7 +16,7 @@
 
 package com.mijack.ppms.token.service.impl;
 
-import com.mijack.ppms.common.CollectionHelper;
+import com.mijack.ppms.utils.CollectionHelper;
 import com.mijack.ppms.token.data.UserTokenParam;
 import com.mijack.ppms.token.dto.GeneratedToken;
 import com.mijack.ppms.token.dto.Token;

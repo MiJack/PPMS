@@ -14,27 +14,19 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.common;
+package com.mijack.ppms.user.exceptions;
 
-import java.util.Collection;
+import com.mijack.ppms.exceptions.RpcException;
+import com.mijack.ppms.user.dto.UserRpcCode;
 
 /**
  * @author Mi&Jack
  */
-public class CollectionHelper {
-    public static <T> int size(T... array) {
-        return array == null ? 0 : array.length;
-    }
+public class UserLockedException extends RpcException {
+    private final Long userId;
 
-    public static <T> int size(Collection<T> collection) {
-        return collection == null ? 0 : collection.size();
-    }
-
-    public static <T> boolean isEmpty(Collection<T> collection) {
-        return size(collection) == 0;
-    }
-
-    public static <T> boolean isEmpty(T[] array) {
-        return size(array) == 0;
+    public UserLockedException(Long userId) {
+        super(UserRpcCode.UserLocked.toException(userId));
+        this.userId = userId;
     }
 }

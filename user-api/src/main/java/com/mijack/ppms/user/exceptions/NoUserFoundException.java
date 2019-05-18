@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.user.exceptions;
 
-import com.mijack.ppms.user.dto.UserRequirement;
+import com.mijack.ppms.exceptions.RpcException;
+import com.mijack.ppms.user.dto.UserRpcCode;
 
 /**
  * @author Mi&Jack
  */
-public interface UserManager {
-    /**
-     * 检查userRequirement中的用户角色状态
-     *
-     * @param userRequirement
-     */
-    void checkUserRequirement(UserRequirement userRequirement);
+public class NoUserFoundException extends RpcException {
+    private final Long userId;
+
+    public NoUserFoundException(Long userId) {
+       super(UserRpcCode.NoUserFound.toException(userId));
+       this.userId = userId;
+    }
 }

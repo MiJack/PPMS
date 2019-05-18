@@ -19,6 +19,7 @@ package com.mijack.ppms.user.api;
 import com.mijack.ppms.api.RpcResult;
 import com.mijack.ppms.user.dto.Role;
 import com.mijack.ppms.user.dto.RoleStatus;
+import com.mijack.ppms.user.dto.UserRequirement;
 
 import java.util.List;
 
@@ -81,4 +82,5 @@ public interface UserRoleService {
      * @return
      */
     RpcResult<Boolean> removeRoles(long userId, long operatorId, List<Role> roles);
+
 }

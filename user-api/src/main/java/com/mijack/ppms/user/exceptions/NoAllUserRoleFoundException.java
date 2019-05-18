@@ -14,18 +14,25 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.user.exceptions;
 
-import com.mijack.ppms.user.dto.UserRequirement;
+import com.mijack.ppms.exceptions.RpcException;
+import com.mijack.ppms.user.dto.Role;
+import com.mijack.ppms.user.dto.UserRpcCode;
+import com.sun.deploy.util.StringUtils;
+
+import java.util.Set;
 
 /**
  * @author Mi&Jack
  */
-public interface UserManager {
-    /**
-     * 检查userRequirement中的用户角色状态
-     *
-     * @param userRequirement
-     */
-    void checkUserRequirement(UserRequirement userRequirement);
+public class NoAllUserRoleFoundException extends RpcException {
+    private final Long userId;
+    private final Set<Role> checkRoles;
+
+    public NoAllUserRoleFoundException(Long userId, Set<Role> checkRoles) {
+        super(UserRpcCode.NoAllUserRoleFound.toException(userId, StringUtils.join(checkRoles, ",")));
+        this.userId = userId;
+        this.checkRoles = checkRoles;
+    }
 }

@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.user.dao;
 
-import com.mijack.ppms.user.dto.UserRequirement;
+import com.mijack.ppms.user.dto.UserStatus;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Mi&Jack
  */
-public interface UserManager {
-    /**
-     * 检查userRequirement中的用户角色状态
-     *
-     * @param userRequirement
-     */
-    void checkUserRequirement(UserRequirement userRequirement);
+@Repository
+public interface UserStatusRepository {
+    UserStatus findUserStatus(long userId);
 }

@@ -17,17 +17,16 @@
 package com.mijack.ppms.user.service;
 
 import com.google.common.collect.Lists;
+import com.mijack.ppms.api.RpcCode;
 import com.mijack.ppms.api.RpcResult;
-import com.mijack.ppms.common.CollectionHelper;
 import com.mijack.ppms.enums.Enums;
 import com.mijack.ppms.user.annotations.UserRequire;
 import com.mijack.ppms.user.api.UserRoleService;
 import com.mijack.ppms.user.dto.Role;
 import com.mijack.ppms.user.dto.RoleStatus;
 import com.mijack.ppms.user.dto.UserRpcCode;
-import com.mijack.ppms.user.dto.UserStatus;
 import com.mijack.ppms.user.manager.UserRoleManager;
-import com.mijack.ppms.user.manager.UserStatusManager;
+import com.mijack.ppms.utils.CollectionHelper;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,58 +40,46 @@ import java.util.stream.Collectors;
 public class UserRoleServiceImpl implements UserRoleService {
     @Autowired
     private UserRoleManager userRoleManager;
-    @Autowired
-    private UserStatusManager userStatusManager;
 
     @Override
     public RpcResult<List<RoleStatus>> listUserRole(@UserRequire long userId) {
-        checkUserStatus(userId);
         List<RoleStatus> roles = userRoleManager.listAllUserRole(userId);
-        return UserRpcCode.ResultOk.wrapResult(roles);
+        return RpcCode.ResultOk.wrapResult(roles);
     }
 
-    private void checkUserStatus(long userId) {
-        UserStatus userStatus = userStatusManager.findUserStatus(userId);
-        if (userStatus == null || userStatus.isDeleted()) {
-            throw UserRpcCode.NoUserFound.toException(userId);
-        }
-        if (userStatus.isLocked()) {
-            throw UserRpcCode.UserLocked.toException(userId);
-        }
-    }
 
     @Override
     public RpcResult<Boolean> hasAnyRole(@UserRequire long userId, List<Role> roles) {
         List<Role> userRoles = userRoleManager.listUserRole(userId);
         if (CollectionHelper.isEmpty(userRoles)) {
-            return UserRpcCode.NO_USER_ROLE.wrapResult(false, userId);
+            return UserRpcCode.NoUserRole.wrapResult(false, userId);
         }
         if (CollectionHelper.isEmpty(roles)) {
-            return UserRpcCode.WRONG_PARAM.wrapResult(false);
+            return RpcCode.WrongParam.wrapResult(false);
         }
         for (Role role : roles) {
             if (userRoles.contains(role)) {
-                return UserRpcCode.ResultOk.wrapResult(true);
+                return RpcCode.ResultOk.wrapResult(true);
             }
         }
-        return UserRpcCode.ResultOk.wrapResult(false);
+        return RpcCode.ResultOk.wrapResult(false);
     }
 
     @Override
     public RpcResult<Boolean> hasAllRole(@UserRequire long userId, List<Role> roles) {
         List<Role> userRoles = userRoleManager.listUserRole(userId);
         if (CollectionHelper.isEmpty(userRoles)) {
-            return UserRpcCode.NO_USER_ROLE.wrapResult(false, userId);
+            return UserRpcCode.NoUserRole.wrapResult(false, userId);
         }
         if (CollectionHelper.isEmpty(roles)) {
-            return UserRpcCode.WRONG_PARAM.wrapResult(false);
+            return RpcCode.WrongParam.wrapResult(false);
         }
         for (Role role : roles) {
             if (!userRoles.contains(role)) {
-                return UserRpcCode.ResultOk.wrapResult(false);
+                return RpcCode.ResultOk.wrapResult(false);
             }
         }
-        return UserRpcCode.ResultOk.wrapResult(true);
+        return RpcCode.ResultOk.wrapResult(true);
     }
 
     @Override
@@ -113,7 +100,7 @@ public class UserRoleServiceImpl implements UserRoleService {
         userRoleManager.createUserRoles(createRoles.stream()
                 .map(role -> RoleStatus.builder().roleId(role.id()).status(RoleStatus.STATUS_ENABLE).build())
                 .collect(Collectors.toList()));
-        return UserRpcCode.ResultOk.wrapResult(true);
+        return RpcCode.ResultOk.wrapResult(true);
     }
 
     @Override
@@ -134,7 +121,7 @@ public class UserRoleServiceImpl implements UserRoleService {
         userRoleManager.createUserRoles(createRoles.stream()
                 .map(role -> RoleStatus.builder().roleId(role.id()).status(RoleStatus.STATUS_DISABLE).build())
                 .collect(Collectors.toList()));
-        return UserRpcCode.ResultOk.wrapResult(true);
+        return RpcCode.ResultOk.wrapResult(true);
     }
 
     @Override
@@ -149,6 +136,6 @@ public class UserRoleServiceImpl implements UserRoleService {
             }
         }
         userRoleManager.removeUserStatus(existRoleStatuses);
-        return UserRpcCode.ResultOk.wrapResult(true);
+        return RpcCode.ResultOk.wrapResult(true);
     }
 }

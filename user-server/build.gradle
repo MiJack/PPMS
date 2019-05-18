@@ -36,6 +36,7 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
     compile('com.alibaba:fastjson:1.2.47')
     compile 'org.apache.dubbo:dubbo-spring-boot-starter:2.7.1'
     compile group: 'org.apache.dubbo', name: 'dubbo', version: '2.7.1'

@@ -63,4 +63,11 @@ public enum Role implements IdentifierEnum<Role> {
         return description;
     }
 
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

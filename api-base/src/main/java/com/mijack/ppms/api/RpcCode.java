@@ -14,18 +14,42 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.api;
 
-import com.mijack.ppms.user.dto.UserRequirement;
+import com.mijack.ppms.exceptions.IRpcCodeEnum;
 
 /**
  * @author Mi&Jack
  */
-public interface UserManager {
+public enum RpcCode implements IRpcCodeEnum {
     /**
-     * 检查userRequirement中的用户角色状态
-     *
-     * @param userRequirement
+     * 调用成功
      */
-    void checkUserRequirement(UserRequirement userRequirement);
+    ResultOk(0, "调用成功"),
+    /**
+     * 非法参数
+     */
+    WrongParam(4, "非法参数"),
+    /**
+     * 内部异常
+     */
+    SystemError(5, "内部异常:{1}");
+    private int code;
+    private String msg;
+
+    RpcCode(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+
+    @Override
+    public int code() {
+        return code;
+    }
+
+    @Override
+    public String msg() {
+        return msg;
+    }
 }

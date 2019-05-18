@@ -14,42 +14,50 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.annotations;
+package com.mijack.ppms.user.dto;
 
-import com.mijack.ppms.user.dto.CheckModel;
-import com.mijack.ppms.user.dto.Role;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author Mi&Jack
  */
-@Target(ElementType.PARAMETER)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface UserRequire {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class UserRequirement implements Serializable {
+
+    private static final long serialVersionUID = 657243623242599855L;
+    /**
+     * 待检查的用户id
+     */
+    private long userId;
     /**
      * 要求userId对应的用户存在
      *
      * @return
      */
-    boolean requireExists() default true;
+    private boolean requireExists;
 
     /**
      * 要求userId对应的用户处于启用状态
      *
      * @return
      */
-    boolean requireValid() default true;
+    private boolean requireValid;
 
     /**
      * 待检查用户的用户角色
      *
      * @return
      */
-    Role[] checkRoles() default {};
+    private List<Role> checkRoles;
 
     /**
      * 对待检测用户的角色的要求:
@@ -59,8 +67,6 @@ public @interface UserRequire {
      * </ul>
      *
      * @return
-     * @see #checkModel()
      */
-    CheckModel checkModel() default CheckModel.HAVE_ALL_ROLES;
-
+    private CheckModel checkModel;
 }

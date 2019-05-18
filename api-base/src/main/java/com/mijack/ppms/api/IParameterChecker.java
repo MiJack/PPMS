@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.api;
 
-import com.mijack.ppms.user.dto.UserRequirement;
+import java.lang.annotation.Annotation;
 
 /**
+ * 利用aop对参数进行检查
+ *
  * @author Mi&Jack
  */
-public interface UserManager {
+public interface IParameterChecker<T, A extends Annotation> {
     /**
-     * 检查userRequirement中的用户角色状态
+     * 对于参数和注解进行检查
      *
-     * @param userRequirement
+     * @param parameter
+     * @param a
      */
-    void checkUserRequirement(UserRequirement userRequirement);
+    void doParameterCheck(T parameter, A a);
 }

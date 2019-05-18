@@ -14,18 +14,27 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.utils;
 
-import com.mijack.ppms.user.dto.UserRequirement;
+import java.util.Collection;
 
 /**
  * @author Mi&Jack
  */
-public interface UserManager {
-    /**
-     * 检查userRequirement中的用户角色状态
-     *
-     * @param userRequirement
-     */
-    void checkUserRequirement(UserRequirement userRequirement);
+public class CollectionHelper {
+    public static <T> int size(T... array) {
+        return array == null ? 0 : array.length;
+    }
+
+    public static <T> int size(Collection<T> collection) {
+        return collection == null ? 0 : collection.size();
+    }
+
+    public static <T> boolean isEmpty(Collection<T> collection) {
+        return size(collection) == 0;
+    }
+
+    public static <T> boolean isEmpty(T[] array) {
+        return size(array) == 0;
+    }
 }

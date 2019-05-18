@@ -18,6 +18,7 @@ package com.mijack.ppms.user.manager;
 
 import com.mijack.ppms.user.dto.Role;
 import com.mijack.ppms.user.dto.RoleStatus;
+import com.mijack.ppms.user.dto.UserRequirement;
 
 import java.util.List;
 

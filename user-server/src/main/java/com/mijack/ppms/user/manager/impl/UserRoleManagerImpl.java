@@ -17,9 +17,10 @@
 package com.mijack.ppms.user.manager.impl;
 
 import com.mijack.ppms.enums.Enums;
-import com.mijack.ppms.user.UserRoleRepository;
+import com.mijack.ppms.user.dao.UserRoleRepository;
 import com.mijack.ppms.user.dto.Role;
 import com.mijack.ppms.user.dto.RoleStatus;
+import com.mijack.ppms.user.dto.UserRequirement;
 import com.mijack.ppms.user.manager.UserRoleManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

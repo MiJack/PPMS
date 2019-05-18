@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user;
+package com.mijack.ppms.user.dao;
 
 import com.mijack.ppms.user.dto.RoleStatus;
 import org.springframework.stereotype.Repository;

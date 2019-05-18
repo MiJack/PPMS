@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.exceptions;
 
-import com.mijack.ppms.user.dto.UserRequirement;
+import com.mijack.ppms.api.RpcCode;
 
 /**
  * @author Mi&Jack
  */
-public interface UserManager {
-    /**
-     * 检查userRequirement中的用户角色状态
-     *
-     * @param userRequirement
-     */
-    void checkUserRequirement(UserRequirement userRequirement);
+public class ServerErrorException extends RpcException {
+    public ServerErrorException(String msg) {
+        super(RpcCode.SystemError.toException(msg));
+    }
 }

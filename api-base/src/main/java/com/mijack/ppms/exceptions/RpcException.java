@@ -22,7 +22,7 @@ import lombok.Data;
  * @author Mi&Jack
  */
 @Data
-public class RpcException extends RuntimeException {
+public class RpcException extends RuntimeException implements RpcExceptionDesc {
     private int code;
     private String msg;
     private String errorType;
@@ -42,5 +42,35 @@ public class RpcException extends RuntimeException {
         this.code = rpcExceptionDesc.code();
         this.msg = rpcExceptionDesc.msg();
         this.errorType = rpcExceptionDesc.errorType();
+    }
+
+    /**
+     * 对应rpc调用异常的结果
+     *
+     * @return
+     */
+    @Override
+    public int code() {
+        return code;
+    }
+
+    /**
+     * 对应rpc调用异常的消息
+     *
+     * @return
+     */
+    @Override
+    public String msg() {
+        return msg;
+    }
+
+    /**
+     * 对应rpc调用异常的类型
+     *
+     * @return
+     */
+    @Override
+    public String errorType() {
+        return errorType;
     }
 }

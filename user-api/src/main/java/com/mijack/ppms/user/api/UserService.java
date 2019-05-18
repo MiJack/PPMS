@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.manager;
+package com.mijack.ppms.user.api;
 
+import com.mijack.ppms.api.RpcResult;
 import com.mijack.ppms.user.dto.UserRequirement;
 
 /**
  * @author Mi&Jack
  */
-public interface UserManager {
+public interface UserService {
+
     /**
      * 检查userRequirement中的用户角色状态
      *
      * @param userRequirement
+     * @return
      */
-    void checkUserRequirement(UserRequirement userRequirement);
+    RpcResult<Void> checkUserRequirement(UserRequirement userRequirement);
 }
