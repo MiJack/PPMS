@@ -18,11 +18,13 @@ package com.mijack.ppms.token.dto;
 
 import com.mijack.ppms.common.StringParameterMap;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Mi&Jack
  */
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class TokenGenerateDto extends StringParameterMap {
     private int tokenType;
     private String bizType;

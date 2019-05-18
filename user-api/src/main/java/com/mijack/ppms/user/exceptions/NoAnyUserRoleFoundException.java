@@ -19,7 +19,7 @@ package com.mijack.ppms.user.exceptions;
 import com.mijack.ppms.exceptions.RpcException;
 import com.mijack.ppms.user.dto.Role;
 import com.mijack.ppms.user.dto.UserRpcCode;
-import com.sun.deploy.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Set;
 

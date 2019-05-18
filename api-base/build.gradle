@@ -14,25 +14,7 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-/**
- * @author Mi&Jack
- */
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class RoleStatus {
-    public static final int STATUS_ENABLE = 1;
-    public static final int STATUS_DISABLE = 2;
-    private long id;
-    private int roleId;
-    private int status;
-
+dependencies {
+    compile('org.apache.commons:commons-lang3:3.7')
 }

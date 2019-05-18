@@ -18,6 +18,7 @@ package com.mijack.ppms.portal.security;
 
 import com.mijack.ppms.api.RpcResult;
 import com.mijack.ppms.portal.dto.UserDetailDto;
+import com.mijack.ppms.portal.utils.AuthenticationUtils;
 import com.mijack.ppms.token.api.TokenServiceFacade;
 import com.mijack.ppms.token.dto.GeneratedToken;
 import com.mijack.ppms.token.dto.TokenGenerateDto;

@@ -14,25 +14,15 @@
  * limitations under the License.
  */
 
-package com.mijack.ppms.user.exceptions;
+package com.mijack.ppms.portal.utils;
 
-import com.mijack.ppms.exceptions.RpcException;
-import com.mijack.ppms.user.dto.Role;
-import com.mijack.ppms.user.dto.UserRpcCode;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.Set;
+import com.mijack.ppms.portal.dto.UserDetailDto;
 
 /**
  * @author Mi&Jack
  */
-public class NoAllUserRoleFoundException extends RpcException {
-    private final Long userId;
-    private final Set<Role> checkRoles;
-
-    public NoAllUserRoleFoundException(Long userId, Set<Role> checkRoles) {
-        super(UserRpcCode.NoAllUserRoleFound.toException(userId, StringUtils.join(checkRoles, ",")));
-        this.userId = userId;
-        this.checkRoles = checkRoles;
+public class AuthenticationUtils {
+    public static UserDetailDto currentUser() {
+        return null;
     }
 }

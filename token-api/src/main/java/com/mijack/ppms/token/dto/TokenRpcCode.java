@@ -23,10 +23,6 @@ import com.mijack.ppms.exceptions.IRpcCodeEnum;
  */
 public enum TokenRpcCode implements IRpcCodeEnum {
     /**
-     * 调用成功
-     */
-    ResultOk(0, "调用成功"),
-    /**
      * TokenType不支持
      */
     TokenTypeNotSupported(1, "TokenType(name = {0})不支持"),

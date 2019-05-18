@@ -17,11 +17,13 @@
 package com.mijack.ppms.exceptions;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Mi&Jack
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class RpcException extends RuntimeException implements RpcExceptionDesc {
     private int code;
     private String msg;

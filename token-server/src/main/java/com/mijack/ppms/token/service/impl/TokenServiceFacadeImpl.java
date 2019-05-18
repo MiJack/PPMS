@@ -16,6 +16,7 @@
 package com.mijack.ppms.token.service.impl;
 
 import com.google.common.collect.Maps;
+import com.mijack.ppms.api.RpcCode;
 import com.mijack.ppms.api.RpcResult;
 import com.mijack.ppms.enums.Enums;
 import com.mijack.ppms.token.annotations.For;
@@ -26,9 +27,9 @@ import com.mijack.ppms.token.dto.TokenGenerateDto;
 import com.mijack.ppms.token.dto.TokenRpcCode;
 import com.mijack.ppms.token.dto.TokenType;
 import com.mijack.ppms.token.service.TokenService;
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -66,7 +67,7 @@ public class TokenServiceFacadeImpl implements TokenServiceFacade {
         TokenService tokenService = findTokenService(tokenGenerateDto);
         GeneratedToken generatedToken = tokenService.generateToken(tokenGenerateDto);
         if (generatedToken != null) {
-            return TokenRpcCode.ResultOk.wrapResult(generatedToken);
+            return RpcCode.ResultOk.wrapResult(generatedToken);
         }
         return TokenRpcCode.TokenGenerationFailed.wrapResult(null);
     }

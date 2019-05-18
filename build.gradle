@@ -81,7 +81,10 @@ subprojects { subproj ->
         classifier = 'javadoc'
         from 'build/docs/javadoc'
         doFirst {
-            manifest = defaultManifest({ subproj })
+            manifest = defaultManifest( [
+                    project      : subproj,
+                    projectVendor: project_vendor
+            ])
         }
     }
 
@@ -89,7 +92,10 @@ subprojects { subproj ->
         classifier = 'sources'
         from sourceSets.main.allSource
         doFirst {
-            manifest = defaultManifest({ subproj })
+            manifest = defaultManifest([
+                    project      : subproj,
+                    projectVendor: project_vendor
+            ])
         }
     }
 
@@ -142,7 +148,6 @@ subprojects { subproj ->
                     libraries.'assertj',
                     libraries.'mockito-core',
             )
-            compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.3'
 
 
             // 引入子项目下的lib文件夹中的包
