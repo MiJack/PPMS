@@ -24,5 +24,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserStatusRepository {
+    /**
+     * 根据userId查找对应的UserStatus
+     *
+     * @param userId
+     * @return
+     */
     UserStatus findUserStatus(long userId);
 }

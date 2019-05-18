@@ -35,6 +35,7 @@ public class UserStatusManagerImpl implements UserStatusManager {
      * @param userId
      * @return
      */
+    @Override
     public UserStatus findUserStatus(long userId) {
         return userStatusRepository.findUserStatus(userId);
     }

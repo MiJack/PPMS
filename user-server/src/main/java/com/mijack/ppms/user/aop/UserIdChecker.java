@@ -29,18 +29,14 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * todo 接入aop切面，see https://stackoverflow.com/questions/10247116/spring-aop-pointcut-for-annotated-argument
  * @author Mi&Jack
  */
 @Component
-//@Aspect
 public class UserIdChecker implements IParameterChecker<Long, UserRequire> {
     @Autowired
     private UserManager userManager;
 
-    // see https://stackoverflow.com/questions/10247116/spring-aop-pointcut-for-annotated-argument
-//    @Before("execution(* *(@CustomAnnotation (*), ..)) || " +
-//            "execution(* *(.., @CustomAnnotation (*), ..)) || " +
-//            "execution(* *(.., @CustomAnnotation (*)))")
     @Override
     public void doParameterCheck(Long userId, UserRequire userRequire) {
         boolean requireExists = userRequire.requireExists();

@@ -50,6 +50,7 @@ public class UserManagerImpl implements UserManager {
      *
      * @param userRequirement
      */
+    @Override
     public void checkUserRequirement(UserRequirement userRequirement) {
         long userId = userRequirement.getUserId();
         UserStatus userStatus = userStatusManager.findUserStatus(userId);
